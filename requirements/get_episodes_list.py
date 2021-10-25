@@ -111,11 +111,12 @@ def get_episodes_list_and_urls(anime_objet):
                     if folder_name.endswith(" "):
                         folder_name = folder_name[0:-1]
                     folder_name += "/file_data.json"
-                    with open(folder_name) as file:
-                        json.load(file)
-                        anime_objet.get(list(anime_objet.keys())[0]).get("status")
-                        last_downloaded = anime_objet.get(list(anime_objet.keys())[0]).get("last downloaded")
+                    with open(f"{anime_folder}/{stat_fold}/{folder_name}") as file:
+                        json_load = json.load(file)
+                        # anime_objet.get(list(anime_objet.keys())[0]).get("status")
+                        last_downloaded = json_load.get(list(json_load.keys())[0]).get("last downloaded")
             except Exception as e:
+                print(e)
                 if e:
                     pass
                 last_downloaded = 0
