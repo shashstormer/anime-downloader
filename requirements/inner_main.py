@@ -55,6 +55,13 @@ writes the details to a json file
                 final_data[list(anime_objects.keys())[0]]["episode urls"][episode] = episodes.get(episode)
             else:
                 pass
+        final_data[list(anime_objects.keys())[0]]["total episodes"] = \
+            anime_objects[list(anime_objects.keys())[0]]["total episodes"]
+        final_data[list(anime_objects.keys())[0]]["last downloaded"] = \
+            anime_objects[list(anime_objects.keys())[0]]["last downloaded"]
+        final_data[list(anime_objects.keys())[0]]["status"] = \
+            anime_objects[list(anime_objects.keys())[0]]["status"]
+
         with open(f"{location}/file_data.json", "w") as file:
             json.dump(final_data, file, indent=4)
 
