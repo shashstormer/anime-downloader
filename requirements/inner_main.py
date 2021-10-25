@@ -71,6 +71,9 @@ class main:
 main functions
     """
 
+    def __init__(self):
+        pass
+
     @staticmethod
     def search(term):
         """
