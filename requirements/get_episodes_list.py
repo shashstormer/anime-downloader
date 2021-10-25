@@ -1,8 +1,10 @@
 """
 get episodes list from gogoanime
 """
+import json
 import os
 
+from requirements.config import anime_folder
 from requirements.page_load_return import page_process
 from requirements.search_gogo_anime_term import search_
 
@@ -87,9 +89,40 @@ def get_episodes_list_and_urls(anime_objet):
                 ep_end = line.split("-")[0]
             anime_objet.get(list(anime_objet.keys())[0])["total episodes"] = ep_end
             anime_objet.get(list(anime_objet.keys())[0])["last downloaded"] = "unknown"
-            last_downloaded = anime_objet.get(list(anime_objet.keys())[0]).get("last downloaded")
+            try:
+                folder_name = list(anime_objet.keys())[0].replace("-", " ")
+                folder_name = folder_name.replace("-", " ")
+                folder_name = folder_name.replace("\\", " ")
+                folder_name = folder_name.replace("/", " ")
+                folder_name = folder_name.replace("?", " ")
+                folder_name = folder_name.replace("*", " ")
+                folder_name = folder_name.replace("<", " ")
+                folder_name = folder_name.replace("<", " ")
+                folder_name = folder_name.replace("|", " ")
+                folder_name = folder_name.replace("\"", " ")
+                folder_name.strip(" ")
+                folder_name.strip("\n")
+                stat_fold = anime_objet.get(list(anime_objet.keys())[0]).get("status")
+                try:
+                    os.mkdir(f"{anime_folder}/{stat_fold}/{folder_name}")
+                except Exception as e:
+                    if e:
+                        pass
+                    if folder_name.endswith(" "):
+                        folder_name = folder_name[0:-1]
+                    folder_name += "/file_data.json"
+                    with open(folder_name) as file:
+                        json.load(file)
+                        anime_objet.get(list(anime_objet.keys())[0]).get("status")
+                        last_downloaded = anime_objet.get(list(anime_objet.keys())[0]).get("last downloaded")
+            except Exception as e:
+                if e:
+                    pass
+                last_downloaded = 0
+
             print(f"there are {ep_end} episodes in {list(anime_objet.keys())[0]}")
             print(f"you have last downloaded episode \"{last_downloaded}\"")
+
             # todo: to show last downloaded episode
             if int(ep_end) > 0:
                 ep_start = int(input("start: "))

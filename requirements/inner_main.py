@@ -132,7 +132,7 @@ search gogoanime for term
         data = self.download_links_scrape(self.video_ids_load(self.video_urls_load
                                                               (self.search(term)
                                                                )))
-        print(data)
+        # print(data)
         folder_name = list(data.keys())[0].replace("-", " ")
         folder_name = folder_name.replace("-", " ")
         folder_name = folder_name.replace("\\", " ")
@@ -149,7 +149,8 @@ search gogoanime for term
         try:
             os.mkdir(f"{anime_folder}/{stat_fold}/{folder_name}")
         except Exception as e:
-            print(e)
+            if e:
+                pass
         if folder_name.endswith(" "):
             folder_name = folder_name[0:-1]
         other.json_writer(f"{anime_folder}/{stat_fold}/{folder_name}", data)
