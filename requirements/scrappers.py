@@ -20,29 +20,15 @@ def scrape(anime_object):
     for key in anime_object[list(anime_object.keys())[0]]["episode urls"]:
         anime_object[list(anime_object.keys())[0]]["episode urls"][key]["downloadable"] = []
     anime_objet = anime_object
-    # try:
-    #     anime_object = dodostream(anime_object)
-    #     anime_objet = anime_object
-    # except Exception as e:
-    #     if e != e:
-    #         print(e)
-    #     anime_object = anime_objet
-    # try:
-    #     anime_object = streamtape(anime_object)
-    #     anime_objet = anime_object
-    # except Exception as e:
-    #     if e != e:
-    #         print(e)
-    #     anime_object = anime_objet
     try:
-        anime_object = stream_sb(anime_object)
+        anime_object = goload(anime_object)
         anime_objet = anime_object
     except Exception as e:
         if e != e:
             print(e)
         anime_object = anime_objet
     try:
-        anime_object = goload(anime_object)
+        anime_object = stream_sb(anime_object)
         anime_objet = anime_object
     except Exception as e:
         if e != e:

@@ -1,6 +1,8 @@
 """
 downloader made on 23-9-21
 """
+import os
+
 from requirements import inner_main, config
 
 if config.anime_folder == "c:/users/user/downloads/anime":
@@ -9,6 +11,19 @@ if config.anime_folder == "c:/users/user/downloads/anime":
 else:
     inner_main.other(config.program_name).name()
     try:
+        try:
+            os.mkdir(f"{config.anime_folder}/Completed")
+        except FileExistsError:
+            pass
+        try:
+            os.mkdir(f"{config.anime_folder}/Ongoing")
+        except FileExistsError:
+            pass
+        try:
+            os.mkdir(f"{config.anime_folder}/Upcoming")
+        except FileExistsError:
+            pass
+        # print("\n")
         inner_main.main().full_function(input("enter anime name : "))
     except Exception as e:
         print(e)
