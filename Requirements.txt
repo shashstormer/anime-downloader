@@ -1,0 +1,3 @@
+pywin32
+urllib3
+beautifulsoup4
