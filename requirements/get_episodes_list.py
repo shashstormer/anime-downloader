@@ -75,6 +75,8 @@ def get_episodes_list_and_urls(anime_objet):
 
             print(line__)
             anime_objet.get(list(anime_objet.keys())[0])["description"] = line__
+
+        last_downloaded = 0
         if "ep_start" and "ep_end" and "<a class=\"active\"" in line:
             # print(line)
             line = line.split(">")[1]
