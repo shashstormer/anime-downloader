@@ -50,11 +50,13 @@ writes the details to a json file
                 print(e)
         episodes = anime_objects[list(anime_objects.keys())[0]]["episode urls"]
         episodes_list = list(episodes.keys())
+
         for episode in episodes_list:
             if episode not in old_episodes_list:
                 final_data[list(anime_objects.keys())[0]]["episode urls"][episode] = episodes.get(episode)
             else:
                 pass
+
         final_data[list(anime_objects.keys())[0]]["total episodes"] = \
             anime_objects[list(anime_objects.keys())[0]]["total episodes"]
         final_data[list(anime_objects.keys())[0]]["last downloaded"] = \
