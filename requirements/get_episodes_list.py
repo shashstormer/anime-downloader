@@ -125,8 +125,6 @@ def get_episodes_list_and_urls(anime_objet):
 
             print(f"there are {ep_end} episodes in {list(anime_objet.keys())[0]}")
             print(f"you have last downloaded episode \"{last_downloaded}\"")
-
-            # todo: to show last downloaded episode
             if int(ep_end) > 0:
                 ep_start = int(input("start: "))
                 ep_end = int(input("end: "))

@@ -122,3 +122,26 @@ def get_episodes_list(anime_objet):
 
             print(f"there are {ep_end} episodes in {list(anime_objet.keys())[0]}")
             print(f"you have last downloaded episode \"{last_downloaded}\"")
+            if int(ep_end) > last_downloaded:
+                ep_start = last_downloaded + 1
+                ep_end = ep_end
+                if ep_end < ep_start:
+                    ep_end = ep_start
+            anime_objet.get(list(anime_objet.keys())[0])["last downloaded"] = ep_end
+            os.system("cls")
+        ep_link = anime_objet.get(list(anime_objet.keys())[0]).get("anime details page")
+        ep_link = ep_link.replace("category/", "")
+        ep_link = f"{ep_link}-episode-"
+        ep_links = {}
+        anime_objet.get(list(anime_objet.keys())[0])["genres"] = genres
+        for num in range(int(ep_start), int(ep_end) + 1):
+            ep_links[f"{num}"] = {"episode url": ep_link + f"{num}"}
+        anime_objet[list(anime_objet.keys())[0]]["episode urls"] = ep_links
+        # print(anime_objet)
+        return anime_objet
+
+
+def function():
+    """
+    main function
+    """
