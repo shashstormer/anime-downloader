@@ -1,18 +1,15 @@
 """
-get episodes list from gogoanime
+downloads latest episode of ongoing animes
 """
 import json
 import os
-
 from requirements.config import anime_folder
 from requirements.page_load_return import page_process
-from requirements.search_gogo_anime_term import search_
 
 
-def get_episodes_list_and_urls(anime_objet):
+def get_episodes_list(anime_objet):
     """
-    gets the episodes list for the anime
-    :return:
+    get episode list
     """
     url = anime_objet.get(list(anime_objet.keys())[0]).get("anime details page")
     # print(url)
@@ -125,33 +122,3 @@ def get_episodes_list_and_urls(anime_objet):
 
             print(f"there are {ep_end} episodes in {list(anime_objet.keys())[0]}")
             print(f"you have last downloaded episode \"{last_downloaded}\"")
-
-            # todo: to show last downloaded episode
-            if int(ep_end) > 0:
-                ep_start = int(input("start: "))
-                ep_end = int(input("end: "))
-                if ep_end < ep_start:
-                    ep_end = ep_start
-            else:
-                os.kill(os.getpid(), 9)
-            anime_objet.get(list(anime_objet.keys())[0])["last downloaded"] = ep_end
-            os.system("cls")
-            # print(ep_end)
-            # print(ep_start)
-    ep_link = anime_objet.get(list(anime_objet.keys())[0]).get("anime details page")
-    ep_link = ep_link.replace("category/", "")
-    ep_link = f"{ep_link}-episode-"
-    ep_links = {}
-    anime_objet.get(list(anime_objet.keys())[0])["genres"] = genres
-    for num in range(int(ep_start), int(ep_end) + 1):
-        ep_links[f"{num}"] = {"episode url": ep_link + f"{num}"}
-    anime_objet[list(anime_objet.keys())[0]]["episode urls"] = ep_links
-    # print(anime_objet)
-    return anime_objet
-
-
-if __name__ == "__main__":
-    search = search_("overlord")
-    # print(search)
-    search = get_episodes_list_and_urls(search)
-    print(search)
