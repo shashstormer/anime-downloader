@@ -4,7 +4,10 @@ downloads latest episode of ongoing animes
 import json
 import os
 from requirements.config import anime_folder
+from requirements.download import download
+from requirements.inner_main import other
 from requirements.page_load_return import page_process
+from requirements.scrappers import scrape
 
 
 def get_episodes_list(anime_objet):
@@ -13,135 +16,169 @@ def get_episodes_list(anime_objet):
     """
     url = anime_objet.get(list(anime_objet.keys())[0]).get("anime details page")
     # print(url)
-    data = str(page_process(url)).split("\n")
-    ep_start, ep_end = 0, 0
+    data = str(page_process(url))
+    # print(data)
+    data = data.split("\n")
+    # ep_start, ep_end = 0, 0
     genres = []
-    next_line_read = False
-    status = False
-    Type = False
     for line in data:
         # print(line)
-        # if "" in line:
-        #     line = line.split("")
-
-        if next_line_read:
-            # print(line)
-            line = line.split(">")[1].split("<")[0]
-            # print(line)
-            if status:
-                anime_objet.get(list(anime_objet.keys())[0])["status"] = line
-            elif Type:
-                anime_objet.get(list(anime_objet.keys())[0])["release time"] = line
-            next_line_read = False
-
-        if "<p class=\"type\"><span>Type: </span>" in line:
-            next_line_read = True
-            Type = True
-
-        if "<p class=\"type\"><span>Other name: </span>" in line:
-            line = line.split(">")[1].split("<")[0].split(",")
-            anime_objet.get(list(anime_objet.keys())[0])["other names"] = line
-
-        if "<p class=\"type\"><span>Status: </span>" in line:
-            next_line_read = True
-            status = True
-
-        if "https://gogoanime.vc/genre/" in line:
-            line = line.split("\"")
-            for genre in line:
-                if "https://gogoanime.vc/genre/" in genre:
-                    genre = genre.split("/")[-1]
-                    genres.append(genre)
-        if "<p class=\"type\"><span>Plot Summary:" in line:
-            line = line.split("</span>")[1]
-            line = line.split(".\r")
-
-            # line.replace(".\r", "")
-            line_ = line[0].split(" ")
-            line__ = ""
-            word_number = 0
-            # print(line)
-            # print(line_)
-            for word in line_:
-                # print(word)
-                line__ += word + " "
-                word_number += 1
-                if word_number == 10:
-                    line__ += "\n"
-                    word_number = 0
-
-            print(line__)
-            anime_objet.get(list(anime_objet.keys())[0])["description"] = line__
-
-        last_downloaded = 0
         if "ep_start" and "ep_end" and "<a class=\"active\"" in line:
             # print(line)
             line = line.split(">")[1]
             line = line.replace("</a", "")
-            # print(line)
-            # ep_start = line.split("-")[0]
-            if int(ep_start) == 0:
-                ep_start = 1
-            try:
-                ep_end = line.split("-")[1]
-            except IndexError:
-                ep_end = line.split("-")[0]
+            # if int(ep_start) == 0:
+            #     ep_start = 1
+            ep_end = line.split("-")[1]
             anime_objet.get(list(anime_objet.keys())[0])["total episodes"] = ep_end
-            anime_objet.get(list(anime_objet.keys())[0])["last downloaded"] = "unknown"
-            try:
-                folder_name = list(anime_objet.keys())[0].replace("-", " ")
-                folder_name = folder_name.replace("-", " ")
-                folder_name = folder_name.replace("\\", " ")
-                folder_name = folder_name.replace("/", " ")
-                folder_name = folder_name.replace("?", " ")
-                folder_name = folder_name.replace("*", " ")
-                folder_name = folder_name.replace("<", " ")
-                folder_name = folder_name.replace("<", " ")
-                folder_name = folder_name.replace("|", " ")
-                folder_name = folder_name.replace("\"", " ")
-                folder_name.strip(" ")
-                folder_name.strip("\n")
-                stat_fold = anime_objet.get(list(anime_objet.keys())[0]).get("status")
-                try:
-                    os.mkdir(f"{anime_folder}/{stat_fold}/{folder_name}")
-                except Exception as e:
-                    if e:
-                        pass
-                    if folder_name.endswith(" "):
-                        folder_name = folder_name[0:-1]
-                    folder_name += "/file_data.json"
-                    with open(f"{anime_folder}/{stat_fold}/{folder_name}") as file:
-                        json_load = json.load(file)
-                        # anime_objet.get(list(anime_objet.keys())[0]).get("status")
-                        last_downloaded = json_load.get(list(json_load.keys())[0]).get("last downloaded")
-            except Exception as e:
-                print(e)
-                if e:
-                    pass
-                last_downloaded = 0
+    try:
+        folder_name = list(anime_objet.keys())[0].replace("-", " ")
+        folder_name = folder_name.replace("-", " ")
+        folder_name = folder_name.replace("\\", " ")
+        folder_name = folder_name.replace("/", " ")
+        folder_name = folder_name.replace("?", " ")
+        folder_name = folder_name.replace("*", " ")
+        folder_name = folder_name.replace("<", " ")
+        folder_name = folder_name.replace("<", " ")
+        folder_name = folder_name.replace("|", " ")
+        folder_name = folder_name.replace("\"", " ")
+        folder_name.strip(" ")
+        folder_name.strip("\n")
+        stat_fold = anime_objet.get(list(anime_objet.keys())[0]).get("status")
+        try:
+            os.mkdir(f"{anime_folder}/{stat_fold}/{folder_name}")
+        except Exception as e:
+            if e:
+                pass
+            if folder_name.endswith(" "):
+                folder_name = folder_name[0:-1]
+            folder_name += "/file_data.json"
+            with open(f"{anime_folder}/{stat_fold}/{folder_name}") as file:
+                json_load = json.load(file)
+                # anime_objet.get(list(anime_objet.keys())[0]).get("status")
+                last_downloaded = json_load.get(list(json_load.keys())[0]).get("last downloaded")
+    except Exception as e:
+        if e:
+            pass
+        last_downloaded = 0
+    ep_end = int(anime_objet.get(list(anime_objet.keys())[0])["total episodes"])
+    ep_start = int(last_downloaded)
+    last_downloaded = int(last_downloaded)
+    print(f"there are {ep_end} episodes in {list(anime_objet.keys())[0]}")
+    print(f"you have last downloaded episode \"{last_downloaded}\"")
+    if int(ep_end) > int(last_downloaded):
+        ep_start = last_downloaded + 1
+        ep_end = ep_end
+        if ep_end < ep_start:
+            ep_end = ep_start
+    anime_objet.get(list(anime_objet.keys())[0])["last downloaded"] = ep_end
+    ep_link = anime_objet.get(list(anime_objet.keys())[0]).get("anime details page")
+    ep_link = ep_link.replace("category/", "")
+    ep_link = f"{ep_link}-episode-"
+    ep_links = {}
+    anime_objet.get(list(anime_objet.keys())[0])["genres"] = genres
+    for num in range(int(ep_start), int(ep_end) + 1):
+        ep_links[f"{num}"] = {"episode url": ep_link + f"{num}"}
+    anime_objet[list(anime_objet.keys())[0]]["episode urls"] = ep_links
+    # print(anime_objet)
+    return anime_objet
 
-            print(f"there are {ep_end} episodes in {list(anime_objet.keys())[0]}")
-            print(f"you have last downloaded episode \"{last_downloaded}\"")
-            if int(ep_end) > last_downloaded:
-                ep_start = last_downloaded + 1
-                ep_end = ep_end
-                if ep_end < ep_start:
-                    ep_end = ep_start
-            anime_objet.get(list(anime_objet.keys())[0])["last downloaded"] = ep_end
-            os.system("cls")
-        ep_link = anime_objet.get(list(anime_objet.keys())[0]).get("anime details page")
-        ep_link = ep_link.replace("category/", "")
-        ep_link = f"{ep_link}-episode-"
-        ep_links = {}
-        anime_objet.get(list(anime_objet.keys())[0])["genres"] = genres
-        for num in range(int(ep_start), int(ep_end) + 1):
-            ep_links[f"{num}"] = {"episode url": ep_link + f"{num}"}
-        anime_objet[list(anime_objet.keys())[0]]["episode urls"] = ep_links
-        # print(anime_objet)
-        return anime_objet
+
+def get_video_ids(anime_objet):
+    """
+function to get video ids from a gogoanime page
+:var anime_objet: the object that contains the anime details
+    :return:
+    """
+
+    episodes = anime_objet[list(anime_objet.keys())[0]]["episode urls"]
+    episodes_list = list(episodes.keys())
+    for key in episodes_list:
+        print(f"scrapping links for episode {key}")
+        ep_url = episodes[key].get("episode url")
+        ep_page = page_process(ep_url)
+        ep_page = str(ep_page)
+        ep_page = ep_page.split("\n")
+        for line in ep_page:
+            if "data-video=\"//goload.one/streaming.php?" in line:
+                # print(line)
+                line = line.split("data-video=\"")[1].split("\"")[0].replace("streaming.php", "download")
+                # print(line)
+                line = episodes[key]["goload"] = f"https:{line}"
+                # print(f"{line}")
+
+            if "<a data-video=\"https://" in line:
+                line = line.split("\"")[1]
+                if "streamtape.com/e" in line:
+                    line = line.split("streamtape.com/e/")[1]
+                    line = line.split("/")[0]
+                    line = episodes[key]["streamtape"] = f"https://streamtape.com/v/{line}"
+                if "sbplay" in line:
+                    print(line)
+                    line = line.split(".html")[0]
+                    line = line.split("e/")[1]
+                    line = episodes[key]["sbplay"] = f"https://tubesb.com/d/{line}"
+                if "dood.la/" in line:
+                    line = line.replace("/e/", "/d/")
+                    line = episodes[key]["dodostream"] = f"{line}"
+                if "embedsito" in line:
+                    line = line.replace("/v/", "/f/")
+                    line = episodes[key]["xstream"] = f"{line}"
+                print(line)
+    anime_objet[list(anime_objet.keys())[0]]["episode urls"] = episodes
+    return anime_objet
 
 
 def function():
     """
     main function
     """
+    ongoing_anime_folders = []
+    for main, animes, files in os.walk(anime_folder + "/Ongoing"):
+        if main == anime_folder + "/Ongoing":
+            for anime in animes:
+                print(anime_folder + "/Ongoing/" + anime + "/file_data.json")
+                ongoing_anime_folders.append(anime_folder + "/Ongoing/" + anime + "/file_data.json")
+    print(ongoing_anime_folders)
+    for file in ongoing_anime_folders:
+        with open(file) as file_read:
+            file_data = json.load(file_read)
+        data = get_episodes_list(file_data)
+        data = get_video_ids(data)
+        data = scrape(data)
+        old(data)
+
+
+def old(anime_object: dict = None):
+    """
+    pass
+    """
+    data = anime_object
+    # print(data)
+    folder_name = list(data.keys())[0].replace("-", " ")
+    folder_name = folder_name.replace("-", " ")
+    folder_name = folder_name.replace("\\", " ")
+    folder_name = folder_name.replace("/", " ")
+    folder_name = folder_name.replace("?", " ")
+    folder_name = folder_name.replace("*", " ")
+    folder_name = folder_name.replace("<", " ")
+    folder_name = folder_name.replace("<", " ")
+    folder_name = folder_name.replace("|", " ")
+    folder_name = folder_name.replace("\"", " ")
+    folder_name.strip(" ")
+    folder_name.strip("\n")
+    stat_fold = data.get(list(data.keys())[0]).get("status")
+    try:
+        os.mkdir(f"{anime_folder}/{stat_fold}/{folder_name}")
+    except Exception as e:
+        if e:
+            pass
+    if folder_name.endswith(" "):
+        folder_name = folder_name[0:-1]
+    other.json_writer(f"{anime_folder}/{stat_fold}/{folder_name}", data)
+    data = download(anime_object)
+    return data
+
+
+if __name__ == "__main__":
+    function()

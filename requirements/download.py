@@ -50,7 +50,7 @@ class for download functions
             pass
         for details in self.details:
             details = self.details.get(details)
-            print(details)
+            # print(details)
             folder_name, episode_number, download_link = details
             folder_name = folder_name.replace("-", " ")
             folder_name = folder_name.replace("\\", " ")
