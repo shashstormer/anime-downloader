@@ -24,6 +24,11 @@ else:
         except FileExistsError:
             pass
         # print("\n")
-        inner_main.main().full_function(input("enter anime name : "))
+        anime = input("enter anime name : ")
+        if anime == "update":
+            import requirements.update
+            requirements.update.function()
+        else:
+            inner_main.main().full_function(anime)
     except Exception as e:
         print(e)
