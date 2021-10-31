@@ -104,8 +104,10 @@ search gogoanime for term
             # print([MainFolder, SubFolder, Sub])
             # if inp.replace("-", " ").lower() in Sub.replace("-", " ").lower():
             # print(SubFolder)
+            Sub_orignal = Sub
+            Sub = Sub.replace("-", " ")
             if Sub == folder_name:
-                files_check.append(fr"{MainFolder}\{Sub}")
+                files_check.append(fr"{MainFolder}\{Sub_orignal}")
     a = 1
     print("existing folders are :")
     for file in files_check:
