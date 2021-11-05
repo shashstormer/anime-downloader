@@ -25,7 +25,7 @@ function to get video ids from a gogoanime page
             if "https://gogoplay1.com/download?id=" in line:
                 # print(line)
                 line = line.split("href=\"")[1].split("\"")[0]
-                line = episodes[key]["goload"] = f"https:{line}"
+                line = episodes[key]["goload"] = f"{line}"
                 print(f"{line}")
 
             if "<a data-video=\"https://" in line:
