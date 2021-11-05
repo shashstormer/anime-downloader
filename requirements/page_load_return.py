@@ -13,7 +13,7 @@ def page_process(url: str):
     :var url url of the page to be loaded
 load page and return the beautiful soup processed data
     """
-    print(url)
+    # print(url)
     user_agent = 'Chrome/92.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.7)'
     headers = {'User-Agent': user_agent, 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
                'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
