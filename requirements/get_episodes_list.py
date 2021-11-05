@@ -131,7 +131,7 @@ def get_episodes_list_and_urls(anime_objet):
                 if ep_end < ep_start:
                     ep_end = ep_start
             else:
-                os.kill(os.getpid(), 9)
+                pass
             anime_objet.get(list(anime_objet.keys())[0])["last downloaded"] = ep_end
             os.system("cls")
             # print(ep_end)

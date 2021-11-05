@@ -137,16 +137,24 @@ def function():
     for main, animes, files in os.walk(anime_folder + "/Ongoing"):
         if main == anime_folder + "/Ongoing":
             for anime in animes:
-                print(anime_folder + "/Ongoing/" + anime + "/file_data.json")
+                # print(anime_folder + "/Ongoing/" + anime + "/file_data.json")
                 ongoing_anime_folders.append(anime_folder + "/Ongoing/" + anime + "/file_data.json")
-    print(ongoing_anime_folders)
+    # print(ongoing_anime_folders)
     for file in ongoing_anime_folders:
         with open(file) as file_read:
-            file_data = json.load(file_read)
-        data = get_episodes_list(file_data)
-        data = get_video_ids(data)
-        data = scrape(data)
-        old(data)
+            file_data: dict = json.load(file_read)
+        ep_difference = int((file_data.get(list(file_data.keys())[0])).get("total episodes")) - int(
+            (file_data.get(list(file_data.keys())[0])).get("last downloaded"))
+        print("\n\n\n")
+        if ep_difference < 30:
+            print("now downloading", list(file_data.keys())[0])
+            print("\n\n\n")
+            data = get_episodes_list(file_data)
+            data = get_video_ids(data)
+            data = scrape(data)
+            old(data)
+        else:
+            print("skipped", list(file_data.keys())[0])
 
 
 def old(anime_object: dict = None):
