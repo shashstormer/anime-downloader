@@ -24,7 +24,6 @@ func
             if "storage.googleapis.com" in line:
                 line = line.replace("<div class=\"dowload\"><a download=\"\" href=\"",  "")
                 line = line.split("\"")[0]
-                # print(line)
                 if "720.mp4" in line:
                     episodes[key]["goload_720_download_url"] = line
                     episodes[key]["downloadable"].append(line)
@@ -34,6 +33,9 @@ func
                 if "-sd.mp4" in line:
                     episodes[key]["goload_sd_download_url"] = line
                     episodes[key]["downloadable"].append(line)
+            if "https://gogo-cdn.com/download.php?" in line:
+                pass
+                print(line)
     anime_objet[list(anime_objet.keys())[0]]["episode urls"] = episodes
     return anime_objet
 
