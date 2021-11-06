@@ -22,6 +22,7 @@ def get_episodes_list_and_urls(anime_objet):
     next_line_read = False
     status = False
     Type = False
+    OtherName = False
     for line in data:
         # print(line)
         # if "" in line:
@@ -33,17 +34,23 @@ def get_episodes_list_and_urls(anime_objet):
             # print(line)
             if status:
                 anime_objet.get(list(anime_objet.keys())[0])["status"] = line
+                status = False
             elif Type:
                 anime_objet.get(list(anime_objet.keys())[0])["release time"] = line
+                Type = False
+            elif OtherName:
+                line = line.replace("\"", "").split(",")
+                anime_objet.get(list(anime_objet.keys())[0])["other names"] = line
+                OtherName = False
             next_line_read = False
 
         if "<p class=\"type\"><span>Type: </span>" in line:
             next_line_read = True
             Type = True
 
-        if "<p class=\"type\"><span>Other name: </span>" in line:
-            line = line.split(">")[1].split("<")[0].split(",")
-            anime_objet.get(list(anime_objet.keys())[0])["other names"] = line
+        if "Other name: " in line:
+            next_line_read = True
+            OtherName = True
 
         if "<p class=\"type\"><span>Status: </span>" in line:
             next_line_read = True
