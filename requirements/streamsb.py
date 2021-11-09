@@ -21,23 +21,25 @@ set clipboard data
     win32clipboard.CloseClipboard()
 
 
-def load_download_link(key, episodes):
+def load_download_link(key, episodes, anime_objet):
     """load link"""
     # print(episodes.get(key).get("sbplay_normal_page"))
     # sb_download_page = None
-    # try:
-    #     sb_download_page = (episodes.get(key)).get("sbplay_high_page")
-    #     if sb_download_page is None:
-    #         raise KeyError
-    # except KeyError:
     try:
-        sb_download_page = (episodes.get(key)).get("sbplay_normal_page")
+        if anime_objet[list(anime_objet.keys())[0]]["quality"] == "low":
+            raise KeyError
+        sb_download_page = (episodes.get(key)).get("sbplay_high_page")
         if sb_download_page is None:
             raise KeyError
     except KeyError:
-        sb_download_page = (episodes.get(key)).get("sbplay_low_page")
-        if sb_download_page is None:
-            return episodes, False
+        try:
+            sb_download_page = (episodes.get(key)).get("sbplay_normal_page")
+            if sb_download_page is None:
+                raise KeyError
+        except KeyError:
+            sb_download_page = (episodes.get(key)).get("sbplay_low_page")
+            if sb_download_page is None:
+                return episodes, False
     # print(episodes)
     if sb_download_page is None:
         download_ = False
@@ -88,10 +90,11 @@ func
                 line = line.split("(")[1].split(")")[0].replace("'", "").replace(",", " ").split(" ")
                 link_normal = f"https://sbplay.one/dl?op=download_orig&id={line[0]}&mode={line[1]}&hash={line[2]}"
                 episodes[key]["sbplay_normal_page"] = link_normal
-            # if "High quality" in line:
-            #     line = line.split("(")[1].split(")")[0].replace("'", "").replace(",", " ").split(" ")
-            #     link_high = f"https://sbplay.one/dl?op=download_orig&id={line[0]}&mode={line[1]}&hash={line[2]}"
-            #     episodes[key]["sbplay_high_page"] = link_high
+            if "High quality" in line:
+                line = line.split("(")[1].split(")")[0].replace("'", "").replace(",", " ").split(" ")
+                link_high = f"https://sbplay.one/dl?op=download_orig&id={line[0]}&mode={line[1]}&hash={line[2]}"
+                episodes[key]["sbplay_high_page"] = link_high
+                # print("high")
             if "Low quality" in line:
                 line = line.split("(")[1].split(")")[0].replace("'", "").replace(",", " ").split(" ")
                 link_low = f"https://sbplay.one/dl?op=download_orig&id={line[0]}&mode={line[1]}&hash={line[2]}"
@@ -119,9 +122,10 @@ func
         a = 1
         while not loaded_link:
             print("loading link")
-            episodes, loaded_link = load_download_link(key, episodes)
+            episodes, loaded_link = load_download_link(key, episodes, anime_objet)
             if loaded_link is False:
-                print("link loading error")
+                print()
+                # print("link loading error")
             else:
                 print(f"download link is {loaded_link}")
             a += 1

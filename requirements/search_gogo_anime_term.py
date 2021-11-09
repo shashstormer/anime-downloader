@@ -83,7 +83,10 @@ search gogoanime for term
         anime_number += 1
         details_anime = (animes.get(anime))
         print(details_anime.get("title") + "   " + details_anime.get("release date"))
-    select_number = int(input("please select : ")) - 1
+    select_number = input("please select : ")
+    quality = select_number.split("-")
+    select_number = int(quality[0])
+    select_number -= 1
     anime_selected = {key_[select_number]: animes.get(key_[select_number])}
     data = anime_selected
     folder_name = list(data.keys())[0].replace("-", " ")
@@ -118,6 +121,9 @@ search gogoanime for term
         os.kill(os.getpid(), 9)
     # print(anime_selected)
     # print(animes)
+    if len(quality) == 2:
+        anime_selected[list(anime_selected.keys())[0]]["quality"] = "low"
+        print("low/normal quantity downloading")
     return anime_selected
 
 
