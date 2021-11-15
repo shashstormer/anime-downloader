@@ -64,10 +64,9 @@ def get_episodes_list_and_urls(anime_objet):
                     genres.append(genre)
         if "<p class=\"type\"><span>Plot Summary:" in line:
             line = line.split("</span>")[1]
-            line = line.split(".\r")
-
-            # line.replace(".\r", "")
-            line_ = line[0].split(" ")
+            print(line)
+            line = line.replace("</p> ", "")
+            line_ = line.split(" ")
             line__ = ""
             word_number = 0
             # print(line)
@@ -88,10 +87,9 @@ def get_episodes_list_and_urls(anime_objet):
             # print(line)
             line = line.split(">")[1]
             line = line.replace("</a", "")
-            # print(line)
-            # ep_start = line.split("-")[0]
             if int(ep_start) == 0:
                 ep_start = 1
+
             try:
                 ep_end = line.split("-")[1]
             except IndexError:
@@ -133,8 +131,16 @@ def get_episodes_list_and_urls(anime_objet):
             print(f"there are {ep_end} episodes in {list(anime_objet.keys())[0]}")
             print(f"you have last downloaded episode \"{last_downloaded}\"")
             if int(ep_end) > 0:
-                ep_start = int(input("start: "))
+                ep_start = input("start: ")
                 ep_end = int(input("end: "))
+                if ep_start.startswith("-"):
+                    anime_objet[list(anime_objet.keys())[0]]["quality"] = "low"
+                    ep_start = ep_start.replace("-", "")
+                    ep_start = int(ep_start)
+                else:
+                    anime_objet[list(anime_objet.keys())[0]]["quality"] = "normal"
+                    ep_start = int(ep_start)
+
                 if ep_end < ep_start:
                     ep_end = ep_start
             else:
