@@ -68,8 +68,11 @@ class for download functions
             except Exception as e:
                 if e != e:
                     pass
-            print(self.anime_object.get(list(self.anime_object.keys())[0]))
-            print("downloading episode", episode_number)
+            print("name : " + (list(self.anime_object.keys())[0]).replace("-", " "))
+            print("total episodes :   " + self.anime_object.get(list(self.anime_object.keys())[0])["total episodes"])
+            print(fr"episodes to download remaining : " + str(
+                int(self.anime_object.get(list(self.anime_object.keys())[0])["last downloaded"]) - int(episode_number)))
+            print("downloading episode : ", episode_number)
             if f"{episode_number}.mp4" in os.walk(
                     fr"{download_main_folder}\{folder_name}") and f"{episode_number}.mp4.aria2" not in \
                     os.walk(
