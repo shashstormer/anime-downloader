@@ -33,12 +33,12 @@ class for download functions
         """
         anime_episodes = self.anime_object.get(list(self.anime_object.keys())[0]).get("episode urls")
         for episode in anime_episodes:
-            print(episode)
+            # print(episode)
             details = anime_episodes.get(episode)
             details_ = [(str(list(self.anime_object.keys())[0]).strip(" ")), episode,
                         details.get("downloadable")]
             self.details[str(episode)] = details_
-            print(details_)
+            # print(details_)
 
     def anime_object_download_link_get_and_download(self):
         """
@@ -50,7 +50,6 @@ class for download functions
             pass
         for details in self.details:
             details = self.details.get(details)
-            # print(details)
             folder_name, episode_number, download_link = details
             folder_name = folder_name.replace("-", " ")
             folder_name = folder_name.replace("\\", " ")
@@ -69,6 +68,8 @@ class for download functions
             except Exception as e:
                 if e != e:
                     pass
+            print(self.anime_object.get(list(self.anime_object.keys())[0]))
+            print("downloading episode", episode_number)
             if f"{episode_number}.mp4" in os.walk(
                     fr"{download_main_folder}\{folder_name}") and f"{episode_number}.mp4.aria2" not in \
                     os.walk(

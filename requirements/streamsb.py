@@ -105,6 +105,7 @@ func
         a = 1
         while not loaded_link:
             os.system("cls")
+            print(anime_objet[list(anime_objet.keys())[0]])
             print("total episodes :   " + anime_objet[list(anime_objet.keys())[0]]["total episodes"])
             print(fr"episodes to load link remaining : " + str(int(anime_objet[list(anime_objet.keys())[0]]["last downloaded"]) - int(key)))
             print(f"loading link for episode {key}")

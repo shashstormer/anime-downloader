@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="561263bb-e75d-4efe-a30a-c4ae8cd41201" name="Changes" comment="downloader updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements/download.py" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/download.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements/streamsb.py" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/streamsb.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,7 +15,19 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="205iHXkheNGuJpR0oSO6VwC4Cqd" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -28,10 +40,11 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.EditorConfig" />
   </component>
   <component name="RunManager" selected="Python.main">
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true" nameIsGenerated="true">
       <module name="anime-downloader" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -103,7 +116,91 @@
       <option name="project" value="LOCAL" />
       <updated>1635346247622</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="downloader updated">
+      <created>1635346875242</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1635346875242</updated>
+    </task>
+    <task id="LOCAL-00004" summary="downloader updated">
+      <created>1635657744444</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1635657744445</updated>
+    </task>
+    <task id="LOCAL-00005" summary="downloader updated">
+      <created>1636125671056</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1636125671056</updated>
+    </task>
+    <task id="LOCAL-00006" summary="downloader updated">
+      <created>1636127437889</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1636127437889</updated>
+    </task>
+    <task id="LOCAL-00007" summary="downloader updated">
+      <created>1636127449352</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1636127449352</updated>
+    </task>
+    <task id="LOCAL-00008" summary="downloader updated">
+      <created>1636127810994</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1636127810994</updated>
+    </task>
+    <task id="LOCAL-00009" summary="downloader updated">
+      <created>1636202864474</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1636202864474</updated>
+    </task>
+    <task id="LOCAL-00010" summary="downloader updated">
+      <created>1636202921804</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1636202921804</updated>
+    </task>
+    <task id="LOCAL-00011" summary="downloader updated">
+      <created>1636203173336</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1636203173337</updated>
+    </task>
+    <task id="LOCAL-00012" summary="downloader updated">
+      <created>1636477119371</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1636477119372</updated>
+    </task>
+    <task id="LOCAL-00013" summary="downloader updated">
+      <created>1636962660054</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1636962660054</updated>
+    </task>
+    <task id="LOCAL-00014" summary="downloader updated">
+      <created>1636962830317</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1636962830317</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -116,6 +213,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="downloader updated" />
