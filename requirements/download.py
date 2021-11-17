@@ -68,6 +68,7 @@ class for download functions
             except Exception as e:
                 if e != e:
                     pass
+            os.system("cls")
             print("name : " + (list(self.anime_object.keys())[0]).replace("-", " "))
             print("total episodes :   " + self.anime_object.get(list(self.anime_object.keys())[0])["total episodes"])
             print(fr"episodes to download remaining : " + str(
