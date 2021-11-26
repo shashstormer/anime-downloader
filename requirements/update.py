@@ -155,7 +155,7 @@ def function():
         print("\n\n\n")
         try:
             if ep_difference < 30:
-                print("now downloading", list(file_data.keys())[0])
+                print("name : ", list(file_data.keys())[0])
                 print("\n\n\n")
                 data = get_episodes_list(file_data)
                 data = get_video_ids(data)
@@ -163,6 +163,7 @@ def function():
                 old(data)
             else:
                 print("skipped", list(file_data.keys())[0])
+            os.system("cls")
         except Exception as e:
             print(e)
 
