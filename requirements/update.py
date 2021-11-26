@@ -62,12 +62,12 @@ def get_episodes_list(anime_objet):
             pass
         last_downloaded = 0
     ep_end = int(anime_objet.get(list(anime_objet.keys())[0])["total episodes"])
-    ep_start = int(last_downloaded)
-    last_downloaded = int(last_downloaded)
+    # ep_start = int(last_downloaded)
+    # last_downloaded = int(last_downloaded)
     # print(f"there are {ep_end} episodes in {list(anime_objet.keys())[0]}")
     # print(f"you have last downloaded episode \"{last_downloaded}\"")
-    print(int(ep_end))
-    print(int(last_downloaded))
+    # print(int(ep_end))
+    # print(int(last_downloaded))
     # os.system("pause")
     if int(ep_end) == int(last_downloaded):
         print("latest downloaded already")
