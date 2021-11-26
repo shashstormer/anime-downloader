@@ -154,7 +154,7 @@ def function():
             (file_data.get(list(file_data.keys())[0])).get("last downloaded"))
         print("\n\n\n")
         try:
-	    os.system("cls")
+            os.system("cls")
             if ep_difference < 30:
                 print("name : ", list(file_data.keys())[0])
                 print("\n\n\n")
