@@ -108,12 +108,13 @@ func
             print("name : " + list(anime_objet.keys())[0].replace("-", " "))
             print("total episodes :   " + anime_objet[list(anime_objet.keys())[0]]["total episodes"])
             print(fr"episodes to load link remaining : " + str(int(anime_objet[list(anime_objet.keys())[0]]["last downloaded"]) - int(key)))
-            print(f"loading link for episode {key}")
+            print(f"loading link for episode : {key}")
             episodes, loaded_link = load_download_link(key, episodes, anime_objet)
             if loaded_link is False:
                 print()
             else:
-                print(f"download link is {loaded_link}")
+                pass
+                # print(f"download link is {loaded_link}")
             a += 1
             if a == 10:
                 break

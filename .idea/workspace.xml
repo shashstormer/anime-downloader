@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="561263bb-e75d-4efe-a30a-c4ae8cd41201" name="Changes" comment="downloader updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements/download.py" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/download.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements/streamsb.py" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/streamsb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/update.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +43,7 @@
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.EditorConfig" />
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.update">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true" nameIsGenerated="true">
       <module name="anime-downloader" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -87,8 +88,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.update" />
+        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -213,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637085534335</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="downloader updated">
+      <created>1637160585421</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1637160585421</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

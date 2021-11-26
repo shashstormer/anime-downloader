@@ -64,24 +64,31 @@ def get_episodes_list(anime_objet):
     ep_end = int(anime_objet.get(list(anime_objet.keys())[0])["total episodes"])
     ep_start = int(last_downloaded)
     last_downloaded = int(last_downloaded)
-    print(f"there are {ep_end} episodes in {list(anime_objet.keys())[0]}")
-    print(f"you have last downloaded episode \"{last_downloaded}\"")
-    if int(ep_end) > int(last_downloaded):
+    # print(f"there are {ep_end} episodes in {list(anime_objet.keys())[0]}")
+    # print(f"you have last downloaded episode \"{last_downloaded}\"")
+    print(int(ep_end))
+    print(int(last_downloaded))
+    # os.system("pause")
+    if int(ep_end) == int(last_downloaded):
+        print("latest downloaded already")
+        raise Exception("already downloaded")
+    else:
         ep_start = last_downloaded + 1
         ep_end = ep_end
         if ep_end < ep_start:
             ep_end = ep_start
-    anime_objet.get(list(anime_objet.keys())[0])["last downloaded"] = ep_end
-    ep_link = anime_objet.get(list(anime_objet.keys())[0]).get("anime details page")
-    ep_link = ep_link.replace("category/", "")
-    ep_link = f"{ep_link}-episode-"
-    ep_links = {}
-    anime_objet.get(list(anime_objet.keys())[0])["genres"] = genres
-    for num in range(int(ep_start), int(ep_end) + 1):
-        ep_links[f"{num}"] = {"episode url": ep_link + f"{num}"}
-    anime_objet[list(anime_objet.keys())[0]]["episode urls"] = ep_links
-    # print(anime_objet)
-    return anime_objet
+        print("downloading latest")
+        anime_objet.get(list(anime_objet.keys())[0])["last downloaded"] = ep_end
+        ep_link = anime_objet.get(list(anime_objet.keys())[0]).get("anime details page")
+        ep_link = ep_link.replace("category/", "")
+        ep_link = f"{ep_link}-episode-"
+        ep_links = {}
+        anime_objet.get(list(anime_objet.keys())[0])["genres"] = genres
+        for num in range(int(ep_start), int(ep_end) + 1):
+            ep_links[f"{num}"] = {"episode url": ep_link + f"{num}"}
+        anime_objet[list(anime_objet.keys())[0]]["episode urls"] = ep_links
+        # print(anime_objet)
+        return anime_objet
 
 
 def get_video_ids(anime_objet):
@@ -146,15 +153,18 @@ def function():
         ep_difference = int((file_data.get(list(file_data.keys())[0])).get("total episodes")) - int(
             (file_data.get(list(file_data.keys())[0])).get("last downloaded"))
         print("\n\n\n")
-        if ep_difference < 30:
-            print("now downloading", list(file_data.keys())[0])
-            print("\n\n\n")
-            data = get_episodes_list(file_data)
-            data = get_video_ids(data)
-            data = scrape(data)
-            old(data)
-        else:
-            print("skipped", list(file_data.keys())[0])
+        try:
+            if ep_difference < 30:
+                print("now downloading", list(file_data.keys())[0])
+                print("\n\n\n")
+                data = get_episodes_list(file_data)
+                data = get_video_ids(data)
+                data = scrape(data)
+                old(data)
+            else:
+                print("skipped", list(file_data.keys())[0])
+        except Exception as e:
+            print(e)
 
 
 def old(anime_object: dict = None):
