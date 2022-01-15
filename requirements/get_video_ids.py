@@ -4,6 +4,7 @@ get video ids for the videos on gogoanime.vc
 from requirements.get_episodes_list import get_episodes_list_and_urls
 from requirements.search_gogo_anime_term import search_
 from requirements.page_load_return import page_process
+from requirements import config
 
 
 def get_video_ids(anime_objet):
@@ -29,23 +30,23 @@ function to get video ids from a gogoanime page
                 print(f"{line}")
 
             if "<a data-video=\"https://" in line:
-                line = line.split("\"")[1]
+                if config.mp4upload_url not in line:
+                    line = line.split("\"")[1]
                 if "streamtape.com/e" in line:
                     line = line.split("streamtape.com/e/")[1]
                     line = line.split("/")[0]
                     line = episodes[key]["streamtape"] = f"https://streamtape.com/v/{line}"
                 if "sbplay" in line:
-                    # print(line)
                     line = line.split(".html")[0]
                     line = line.split("e/")[1]
-                    line = episodes[key]["sbplay"] = f"https://tubesb.com/d/{line}"
-                if "dood.la/" in line:
+                    line = episodes[key]["sbplay"] = f"{config.streamsb_url}/d/{line}"
+                if config.dodostream_url in line:
                     line = line.replace("/e/", "/d/")
                     line = episodes[key]["dodostream"] = f"{line}"
-                if "embedsito" in line:
+                if config.xstream_url in line:
                     line = line.replace("/v/", "/f/")
                     line = episodes[key]["xstream"] = f"{line}"
-                if "dood.la/" in line:
+                if line:
                     print(line)
     anime_objet[list(anime_objet.keys())[0]]["episode urls"] = episodes
     return anime_objet

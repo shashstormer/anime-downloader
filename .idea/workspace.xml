@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="561263bb-e75d-4efe-a30a-c4ae8cd41201" name="Changes" comment="downloader updated">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/anime-downloader.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/anime-downloader.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/update.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements/dodostream.py" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/dodostream.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements/get_video_ids.py" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/get_video_ids.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements/page_load_return.py" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/page_load_return.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements/scrappers.py" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/scrappers.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,9 +33,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="1" />
-  </component>
   <component name="ProjectId" id="205iHXkheNGuJpR0oSO6VwC4Cqd" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -39,10 +44,32 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.EditorConfig" />
   </component>
-  <component name="RunManager" selected="Python.update">
+  <component name="RunManager" selected="Python.main">
+    <configuration name="dodostream" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="anime-downloader" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/requirements" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/requirements/dodostream.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true" nameIsGenerated="true">
       <module name="anime-downloader" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -56,6 +83,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="page_load_return" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="anime-downloader" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/requirements" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/requirements/page_load_return.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -87,8 +135,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.update" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.page_load_return" />
+        <item itemvalue="Python.dodostream" />
+        <item itemvalue="Python.update" />
       </list>
     </recent_temporary>
   </component>
@@ -248,7 +298,21 @@
       <option name="project" value="LOCAL" />
       <updated>1637934456774</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="downloader updated">
+      <created>1637934577443</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1637934577443</updated>
+    </task>
+    <task id="LOCAL-00023" summary="downloader updated">
+      <created>1637934609641</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1637934609641</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
