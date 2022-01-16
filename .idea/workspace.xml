@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="561263bb-e75d-4efe-a30a-c4ae8cd41201" name="Changes" comment="downloader updated">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/anime-downloader.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/anime-downloader.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements/dodostream.py" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/dodostream.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements/get_video_ids.py" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/get_video_ids.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements/page_load_return.py" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/page_load_return.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements/scrappers.py" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/scrappers.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -312,7 +305,21 @@
       <option name="project" value="LOCAL" />
       <updated>1637934609641</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="downloader updated">
+      <created>1642266123673</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1642266123673</updated>
+    </task>
+    <task id="LOCAL-00025" summary="downloader updated">
+      <created>1642266152712</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1642266152712</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -34,10 +34,16 @@ scrape from dodostream and return dodostream_final
         try:
             print("episode:", key)
             key = str(key)
-            link = episodes.get(key).get("dodostream")
+            link = episodes[key].get("dodostream")
+            link = None
             if link is None:
-                print(anime_objet)
-                input("please find url as an error will occur")
+                print("        dodostream error         ")
+                print("episode:", key)
+                print("streamsb download page:", episodes[key]["sbplay"])
+                setClipboardData(episodes[key].get("sbplay"))
+                print(f"link of episode {key} has been copied")
+                keyboard.wait("ctrl+v")
+
             else:
                 print(link)
             try:
@@ -62,6 +68,7 @@ scrape from dodostream and return dodostream_final
             print("dodostream page url:", episodes.get(key).get("dodostream"))
             print("download page:", episodes[key]["dodo download page"])
             setClipboardData(episodes[key]["dodo download page"])
+            print(f"link of episode {key} has been copied")
             keyboard.wait("ctrl+v")
             print("paste success")
         except Exception as e:
