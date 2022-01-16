@@ -32,11 +32,14 @@ scrape from dodostream and return dodostream_final
     episodes_list = list(episodes.keys())
     for key in episodes_list:
         try:
+            print("anime:", str(list(anime_objet.keys())[0]).replace("-", " "))
             print("episode:", key)
             key = str(key)
             link = episodes[key].get("dodostream")
             if link is None:
+                os.system("cls")
                 print("        dodostream error         ")
+                print("anime:", str(list(anime_objet.keys())[0]).replace("-", " "))
                 print("episode:", key)
                 print("streamsb download page:", episodes[key]["sbplay"])
                 setClipboardData(episodes[key].get("sbplay"))
@@ -63,6 +66,7 @@ scrape from dodostream and return dodostream_final
                 episodes[key]["dodo download page"] = episodes.get(key).get("dodostream")
 
             os.system("cls")
+            print("anime:", str(list(anime_objet.keys())[0]).replace("-", " "))
             print("dodostream loading episode:", key)
             print("dodostream page url:", episodes.get(key).get("dodostream"))
             print("download page:", episodes[key]["dodo download page"])
