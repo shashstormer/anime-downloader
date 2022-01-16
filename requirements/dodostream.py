@@ -35,7 +35,6 @@ scrape from dodostream and return dodostream_final
             print("episode:", key)
             key = str(key)
             link = episodes[key].get("dodostream")
-            link = None
             if link is None:
                 print("        dodostream error         ")
                 print("episode:", key)

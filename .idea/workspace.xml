@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="561263bb-e75d-4efe-a30a-c4ae8cd41201" name="Changes" comment="downloader updated">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements/dodostream.py" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/dodostream.py" afterDir="false" />
     </list>
@@ -319,7 +318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642266152712</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="downloader updated">
+      <created>1642313120255</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1642313120255</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
